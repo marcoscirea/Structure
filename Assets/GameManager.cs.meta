@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: fe35e060a0584cb479bb66797fe15baf
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - fadeAndLoadCamera: {fileID: 100000, guid: eeb780710e62aaf41b78615cdfba9f74, type: 2}
+  - exitPrompt: {fileID: 100000, guid: 1e50f910c459e2b43a58479c65d690ea, type: 2}
+  - loadingScreen: {fileID: 100000, guid: 9baa221aa241e9e4aa18dc50d6e3c743, type: 2}
+  executionOrder: -200
+  icon: {instanceID: 0}
+  userData: 
