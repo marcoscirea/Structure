@@ -8,13 +8,13 @@ public class Pickable : Interaction
     public Vector3 invScale;
     public bool inInventory = false;
     public bool clicked = false;
-    Inventory inventory;
+    OldInventory inventory;
     public bool isActive = true;
 
     protected override void doStart()
     {
         if (inventory == null)
-            inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+            inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<OldInventory>();
 
         //check if object already picked up
         if (inventory.hasBeenPickedUp(gameObject.name))
@@ -108,6 +108,6 @@ public class Pickable : Interaction
     {
         //needed when changing scene to have the new dialogue manager etc
         if (inventory == null)
-            inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+            inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<OldInventory>();
     }
 }

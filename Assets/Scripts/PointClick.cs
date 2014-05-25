@@ -56,6 +56,13 @@ public class PointClick : MonoBehaviour
         if (canMove)
         {
 			checkForMoveCommand();
+
+			if (selectedItem != null)
+			{
+				checkForUseObject();
+				
+				checkForSecondaryAction();
+			}
         } 
         //management of actions not interruptable by walking
         else
@@ -147,8 +154,8 @@ public class PointClick : MonoBehaviour
 					interactiveobject = hit.collider.gameObject.GetComponent<Interaction>();
 					
 					//if the object is not an item in the inventory walk to its walkpoint
-					if (hit.collider.gameObject.GetComponent<Pickable>() == null || 
-					    !hit.collider.gameObject.GetComponent<Pickable>().inInventory)
+					if (hit.collider.gameObject.GetComponent<Item>() == null /*|| 
+					    !hit.collider.gameObject.GetComponent<Pickable>().inInventory*/)
 					{
 						target = interactiveobject.getWalkPoint();
 						target.z = -1;
@@ -189,7 +196,7 @@ public class PointClick : MonoBehaviour
 		//if the player presses the right mouse button we call the secondary function for the selected object and re-enable movement
 		if (Input.GetMouseButtonDown(1))
 		{
-			selectedItem.GetComponent<Pickable>().secondary();
+			selectedItem.GetComponent<Item>().secondary();
 			activate();
 		}
 	}
@@ -226,7 +233,7 @@ public class PointClick : MonoBehaviour
                     } else
                     {
                         //Object interaction
-                        selectedItem.GetComponent<Pickable>().useWith(interactiveobject.gameObject);
+                        selectedItem.GetComponent<Item>().useWith(interactiveobject.gameObject);
                         activate();
                         selectedItem = null;
                         objectInteraction = false;
