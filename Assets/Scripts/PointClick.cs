@@ -57,6 +57,7 @@ public class PointClick : MonoBehaviour
         {
 			checkForMoveCommand();
 
+			//if the player is trying to use an item on something else, we control where the raycast hits
 			if (selectedItem != null)
 			{
 				checkForUseObject();
@@ -154,19 +155,19 @@ public class PointClick : MonoBehaviour
 					interactiveobject = hit.collider.gameObject.GetComponent<Interaction>();
 					
 					//if the object is not an item in the inventory walk to its walkpoint
-					if (hit.collider.gameObject.GetComponent<Item>() == null /*|| 
-					    !hit.collider.gameObject.GetComponent<Pickable>().inInventory*/)
-					{
+					/*if (hit.collider.gameObject.GetComponent<Item>() == null || 
+					    !hit.collider.gameObject.GetComponent<Pickable>().inInventory)
+					{*/
 						target = interactiveobject.getWalkPoint();
 						target.z = -1;
 						move = true;
-					}
+					//}
 					//else just start interaction
-					else
+					/*else
 					{
 						canMove = false;
 						interaction();
-					}
+					}*/
 				}
 			}   
 		}
