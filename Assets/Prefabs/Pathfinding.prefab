@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
+  m_Name: Pathfinding
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0942008644, y: .179935679, z: -.949951172}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -35,13 +35,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe35e060a0584cb479bb66797fe15baf, type: 3}
+  m_Script: {fileID: 11500000, guid: 10e756c6ae918a14fb13ab1e736a273b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeAndLoadCamera: {fileID: 100000, guid: eeb780710e62aaf41b78615cdfba9f74, type: 2}
-  exitPrompt: {fileID: 100000, guid: 1e50f910c459e2b43a58479c65d690ea, type: 2}
-  loadingScreen: {fileID: 100000, guid: 9baa221aa241e9e4aa18dc50d6e3c743, type: 2}
-  pathfinding: {fileID: 100000, guid: bc3551fa76a80904caa7463b7fdccdca, type: 2}
+  nodesObj: []
+  s: {fileID: 0}
+  go: {fileID: 0}
+  nodePrefab: {fileID: 100002, guid: 3a7a9dea1097203448925d6f45c688ac, type: 2}
+  range: 4
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

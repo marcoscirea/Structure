@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public GameObject fadeAndLoadCamera;
     public GameObject exitPrompt;
     public GameObject loadingScreen;
+	public GameObject pathfinding;
 
     
     void Awake()
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour {
             Instantiate(loadingScreen);
         if (GameObject.FindGameObjectWithTag("FadeAndLoad") == null)
             Instantiate(fadeAndLoadCamera);
+		if (GameObject.FindGameObjectWithTag("Path") == null)
+			Instantiate(pathfinding);
     }
 
 	void OnLevelWasLoaded(int n){
@@ -37,5 +40,7 @@ public class GameManager : MonoBehaviour {
             Instantiate(loadingScreen);
         if (GameObject.FindGameObjectWithTag("FadeAndLoad") == null)
             Instantiate(fadeAndLoadCamera);
+		if (GameObject.FindGameObjectWithTag("Path") == null)
+			Instantiate(pathfinding);
     }
 }
