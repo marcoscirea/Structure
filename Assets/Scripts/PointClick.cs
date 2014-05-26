@@ -160,6 +160,8 @@ public class PointClick : MonoBehaviour
 					{*/
 						target = interactiveobject.getWalkPoint();
 						target.z = -1;
+						path = new ArrayList();
+						path = pathfinding.Path(transform.position, target);
 						move = true;
 					//}
 					//else just start interaction

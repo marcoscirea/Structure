@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour {
 public Transform[] Contents; //The content of the Inventory
 public int MaxContent = 12; //The maximum number of items the Player can carry.
 
-bool DebugMode = false; //If this is turned on the Inventory script will output the base of what it's doing to the Console window.
+public bool DebugMode = false; //If this is turned on the Inventory script will output the base of what it's doing to the Console window.
 
 private InventoryDisplay playersInvDisplay; //Keep track of the InventoryDisplay script.
 

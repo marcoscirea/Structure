@@ -15,7 +15,8 @@ public class Dialogue : Interaction {
 	}
 	public override void action(){
 		//dm.startDialogue(dialogueNum);
-
+		Debug.Log ("Dialogue");
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<PointClick> ().activate ();
 	}
 
 	public override void secondary(){

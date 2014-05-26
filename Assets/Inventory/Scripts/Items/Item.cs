@@ -182,8 +182,33 @@ void OnDrawGizmos (){
 				}
 	}
 
-	public void useWith (GameObject gameObject)
+	public void useWith (GameObject gameobj)
 	{
-		throw new System.NotImplementedException ();
+		bool success = false;
+		//interact with object
+		Debug.Log("Interact!");
+		switch (gameobj.name)
+        {
+
+        //Combining items template
+
+            case "NPC":
+                switch (gameObject.name){
+                    case "Carrot":
+                        Debug.Log("Used Carrot on NPC");
+						success=true;
+                        break;
+                }
+                break; 
+        }
+		
+		//last operations
+		if (success)
+		{
+			Select(false);
+			playersinv.RemoveItem(this.gameObject.transform);
+			//gameObject.collider.enabled = true;
+		} else
+			secondary();
 	}
 }
