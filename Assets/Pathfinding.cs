@@ -9,6 +9,10 @@ public class Pathfinding : MonoBehaviour
     ArrayList nodes;
     public GameObject s;
     public GameObject go;
+	public GameObject nodePrefab;
+	GameObject newnode;
+
+	public float range = 2f;
 
     // Use this for initialization
     void Start()
@@ -33,18 +37,67 @@ public class Pathfinding : MonoBehaviour
         Node start = null;
         float start_w = INF;
         Node goal = null;
-        float goal_w = INF;
+        //float goal_w = INF;
+
+		if (newnode != null) {
+			Debug.Log("remove");
+			newnode.GetComponent<Node> ().cleanArcs();
+			DestroyImmediate(newnode);
+			nodesObj = GameObject.FindGameObjectsWithTag("Waypoint");
+			nodes = populateList();
+			/*foreach(Node n in nodes){
+				n.restore();
+			}
+			foreach(Node n in nodes){
+				n.missingArcs();
+			}*/
+				}
+		//create ending node
+		newnode = (GameObject) Instantiate (nodePrefab);
+		newnode.transform.position = destination;
+		Node newnoden = newnode.GetComponent<Node> ();
+		//newnode.GetComponent<Node> ().neighbor_nodes = nodesObj;
+		ArrayList temp = new ArrayList ();
+		GameObject closest = null;
+		float closest_w = INF;
+		foreach (GameObject g in nodesObj) {
+			if (Vector3.Distance(newnode.transform.position, g.transform.position)<range){
+				temp.Add(g);
+			}
+			else{
+				if (Vector3.Distance(newnode.transform.position, g.transform.position)<closest_w){
+					closest = g;
+					closest_w = Vector3.Distance(newnode.transform.position, g.transform.position);
+				}
+			}
+				}
+		if (temp.Count != 0) {
+			newnoden.neighbor_nodes = new GameObject[temp.Count];
+			for (int i=0; i<newnoden.neighbor_nodes.Length; i++){
+				newnoden.neighbor_nodes[i] = (GameObject) temp[i];
+			}
+				} else {
+			newnoden.neighbor_nodes = new GameObject[]{closest};
+				}
+		nodesObj = GameObject.FindGameObjectsWithTag("Waypoint");
+		nodes = populateList();
+		foreach(Node n in nodes){
+			n.missingArcs();
+		}
+
         foreach (GameObject g in nodesObj)
         {
-            if (Vector3.Distance(g.transform.position, playerPosition) + Vector3.Distance(g.transform.position, destination) < start_w){
-                start = g.GetComponent<Node>();
+			if (g!=newnode && Vector3.Distance(g.transform.position, playerPosition) + Vector3.Distance(g.transform.position, destination) < start_w){
+				//Debug.Log (g.name);
+				start = g.GetComponent<Node>();
                 start_w = Vector3.Distance(g.transform.position, playerPosition) + Vector3.Distance(g.transform.position, destination);
             }
-            if (Vector3.Distance(g.transform.position, destination) < goal_w){
+            /*if (Vector3.Distance(g.transform.position, destination) < goal_w){
                 goal = g.GetComponent<Node>();
                 goal_w = Vector3.Distance(g.transform.position, destination);
-            }
+            }*/
         }
+		goal = newnode.GetComponent<Node>();
         Debug.Log("start " + start.name + " goal " + goal.name);
 
         if (start == goal)
