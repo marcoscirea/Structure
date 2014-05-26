@@ -16,7 +16,7 @@ void Awake (){
 void Update (){
 	if (Input.GetKeyDown(KeyCode.T))
 	{
-		Application.LoadLevel("Level02");
+		Application.LoadLevel(LevelName);
 	}
 }
 }

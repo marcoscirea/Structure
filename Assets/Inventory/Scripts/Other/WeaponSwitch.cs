@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class WeaponSwitch : MonoBehaviour {
-
+	#pragma warning disable 
 
 //This is an example of how WeaponSwitching could be handled together with the Inventory System in a First Person game.
 //This method is fairly taxing but works great for quickly switching between weapons and having the weapons displayed in the top left corner.
@@ -160,4 +160,5 @@ void OnGUI (){
 	GUILayout.EndHorizontal();
 	GUILayout.EndArea();
 }
+	#pragma warning enable 
 }

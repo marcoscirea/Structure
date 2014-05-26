@@ -37,7 +37,7 @@ public class InventoryDisplay : MonoBehaviour
 //Keeping track of components.
 		private Inventory associatedInventory;
 		private bool cSheetFound = false;
-		private Character cSheet;
+		//private Character cSheet;
 
 
 
@@ -52,7 +52,7 @@ public class InventoryDisplay : MonoBehaviour
 				associatedInventory = GetComponent<Inventory> ();//keepin track of the inventory script
 				if (GetComponent<Character> () != null) {
 						cSheetFound = true;
-						cSheet = GetComponent<Character> ();
+						//cSheet = GetComponent<Character> ();
 				} else {
 						//Debug.LogError ("No Character script was found on this object. Attaching one allows for functionality such as equipping items.");
 						cSheetFound = false;

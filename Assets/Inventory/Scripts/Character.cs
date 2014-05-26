@@ -28,7 +28,7 @@ private Rect windowRect= new Rect(100,100,200,300); //Keeping track of our chara
 //These are keeping track of components such as equipmentEffects and Audio.
 private Inventory playersinv; //Refers to the Inventory script.
 private bool equipmentEffectIs = false;
-private InvAudio invAudio;
+//private InvAudio invAudio;
 private bool invDispKeyIsSame = false;
 
 
@@ -45,7 +45,7 @@ void Awake (){
 	{
 		windowRect = new Rect(customPosition.x,customPosition.y,windowSize.x,windowSize.y);
 	}
-	invAudio = GetComponent<InvAudio>();
+	//invAudio = GetComponent<InvAudio>();
 	if (GetComponent<InventoryDisplay>().onOffButton == onOffButton)
 	{
 		invDispKeyIsSame = true;

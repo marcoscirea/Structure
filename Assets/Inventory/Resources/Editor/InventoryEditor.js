@@ -315,7 +315,7 @@ class InventoryEditor extends EditorWindow {
 	
 	function InventoryDelete ()
 	{
-		Undo.RegisterSceneUndo("PlayersInv");
+		//Undo.RegisterSceneUndo("PlayersInv");
 	
 		selected +=  selectedObject.name + " ";
 		

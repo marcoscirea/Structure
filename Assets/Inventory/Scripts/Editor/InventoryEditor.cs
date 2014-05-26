@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor;
 //THIS IS THE EDITOR WINDOW. DON'T TOUCH THIS :)
-
+#pragma warning disable
 class InventoryEditor: EditorWindow {
 	string playerName = "Player";
 	bool groupEnabled = false;
@@ -351,4 +351,5 @@ class InventoryEditor: EditorWindow {
 	void OnInspectorUpdate (){
 		Repaint();
 	}
+	#pragma warning enable 
 }

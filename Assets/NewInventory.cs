@@ -8,7 +8,7 @@ public class NewInventory : MonoBehaviour {
 	RaycastHit hit;
 	public float speed = 0.01f;
 	static ArrayList items = new ArrayList();
-	bool noUpdate = false;
+	//bool noUpdate = false;
 	//arraylist for already picked up items to avoid duplicate items (see Pickable)
 	static ArrayList pickedUp = new ArrayList();
 
@@ -103,7 +103,7 @@ public class NewInventory : MonoBehaviour {
 	}
 	
 	public void stopUpdate(bool yes){
-		noUpdate = yes;
+		//noUpdate = yes;
 	}
 	
 	public bool hasBeenPickedUp(string name){
