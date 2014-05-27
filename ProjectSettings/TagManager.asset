@@ -10,7 +10,7 @@ TagManager:
   - ExitPrompt
   - FadeAndLoad
   - Loading
-  - 
+  - CameraNode
   - Waypoint
   - Path
   - 
