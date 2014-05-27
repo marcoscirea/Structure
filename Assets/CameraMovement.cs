@@ -15,21 +15,21 @@ public class CameraMovement : MonoBehaviour
 
     void Awake()
     {
-        try
-        {
-            transform.position = startingNode.transform.position;
-            Camera.main.orthographicSize = startingNode.GetComponent<CameraNode>().cameraSize;
-        
-        } catch
-        {
-            Debug.Log("Camera is missing starting node!");
-        }
+
     }
 
     // Use this for initialization
     void Start()
     {
-    
+        try
+        {
+            transform.position = startingNode.transform.position;
+            Camera.main.orthographicSize = startingNode.GetComponent<CameraNode>().cameraSize;
+            
+        } catch
+        {
+            Debug.Log("Camera is missing starting node!");
+        }
     }
     
     // Update is called once per frame
