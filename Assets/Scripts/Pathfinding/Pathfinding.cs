@@ -14,6 +14,7 @@ public class Pathfinding : MonoBehaviour
     GameObject newstartnode;
     public float range = 2f;
     GameObject movingTowardsNode;
+    GameObject movingFromNode;
 
     // Use this for initialization
     void Start()
@@ -225,11 +226,16 @@ public class Pathfinding : MonoBehaviour
             }
         }
 
-        //insert the node towards we're moving as neighbor
+        //insert the node towards we're moving and the node we're moving from as neighbor
         if (movingTowardsNode != null)
         {
             temp.Add(movingTowardsNode);
             movingTowardsNode=null;
+        }
+        if (movingFromNode != null)
+        {
+            temp.Add(movingFromNode);
+            movingFromNode=null;
         }
 
         if (temp.Count != 0)
@@ -273,12 +279,17 @@ public class Pathfinding : MonoBehaviour
 
     public void movingTo(Vector3 pos)
     {
+        bool found = false;
         foreach (GameObject g in nodesObj)
         {
-            if(Vector3.Equals(g.transform.position,pos)){
+            if(Vector3.Equals(g.transform.position,pos) && g!=newgoalnode){
                 movingTowardsNode=g;
-                break;
+                found=true;
             }
+        }
+
+        if (found && movingTowardsNode.GetComponent<Node>().previous!= null &&movingTowardsNode.GetComponent<Node>().previous!=newstartnode){
+            movingFromNode = movingTowardsNode.GetComponent<Node>().previous.gameObject;
         }
     }
 }
