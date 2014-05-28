@@ -179,7 +179,7 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 0
         destinationConversationID: 1
-        destinationDialogueID: 7
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -205,7 +205,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(SnowmanCloseup); Delay({{end}})
         type: 0
       conversationID: 1
       isRoot: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(SnowmanCloseup); Camera(Closeup, listener)@({{end}})
         type: 0
       conversationID: 1
       isRoot: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(SnowmanCloseup); Delay({{end}})
         type: 0
       conversationID: 1
       isRoot: 0
@@ -400,7 +400,7 @@ MonoBehaviour:
         value: 
         type: 0
       - title: Sequence
-        value: 
+        value: Camera(SnowmanCloseup); Delay({{end}})
         type: 0
       conversationID: 1
       isRoot: 0
@@ -410,44 +410,5 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
-      userScript: 
-    - id: 7
-      fields:
-      - title: Title
-        value: New Dialogue
-        type: 0
-      - title: Actor
-        value: 2
-        type: 5
-      - title: Conversant
-        value: 1
-        type: 5
-      - title: Menu Text
-        value: 
-        type: 0
-      - title: Dialogue Text
-        value: 
-        type: 4
-      - title: Video File
-        value: 
-        type: 0
-      - title: Sequence
-        value: 
-        type: 0
-      conversationID: 1
-      isRoot: 0
-      isGroup: 0
-      nodeColor: White
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 1
-        originDialogueID: 7
-        destinationConversationID: 1
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
