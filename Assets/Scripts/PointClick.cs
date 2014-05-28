@@ -43,7 +43,7 @@ public class PointClick : MonoBehaviour
         //move player to starting position if existing
         if (exitDoor != Vector3.zero)
         {
-            transform.position = new Vector3(exitDoor.x, exitDoor.y, -1);
+            transform.position = new Vector3(exitDoor.x, exitDoor.y, 0);
             exitDoor = Vector3.zero;
         }
 
@@ -143,8 +143,12 @@ public class PointClick : MonoBehaviour
 				//clicked on a walkable area
 				if (hit.collider.tag == "Walkable")
 				{
+                    //for smoother movement we connect the starting node to the node we're moving towards
+                    if (move){
+                        pathfinding.movingTo((Vector3) path[0]);
+                    }
 					move = true;    
-					target = new Vector3(hit.point.x, hit.point.y + yadjust, -1);
+					target = new Vector3(hit.point.x, hit.point.y + yadjust, 0);
                     path = new ArrayList();
                     path = pathfinding.Path(transform.position, target);
 				}
@@ -158,8 +162,14 @@ public class PointClick : MonoBehaviour
 					/*if (hit.collider.gameObject.GetComponent<Item>() == null || 
 					    !hit.collider.gameObject.GetComponent<Pickable>().inInventory)
 					{*/
+
+                    //for smoother movement we connect the starting node to the node we're moving towards
+                    if (move){
+                        pathfinding.movingTo((Vector3) path[0]);
+                    }
+
 						target = interactiveobject.getWalkPoint();
-						target.z = -1;
+						target.z = 0;
 						path = new ArrayList();
 						path = pathfinding.Path(transform.position, target);
 						move = true;
@@ -187,7 +197,7 @@ public class PointClick : MonoBehaviour
 				{
 					interactiveobject = hit.collider.gameObject.GetComponent<Interaction>();
 					target = interactiveobject.getWalkPoint();
-					target.z = -1;
+					target.z = 0;
 					move = true;
 					objectInteraction = true;
 				}

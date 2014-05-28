@@ -13,6 +13,7 @@ public class Pathfinding : MonoBehaviour
     GameObject newgoalnode;
     GameObject newstartnode;
     public float range = 2f;
+    GameObject movingTowardsNode;
 
     // Use this for initialization
     void Start()
@@ -223,6 +224,14 @@ public class Pathfinding : MonoBehaviour
                 }
             }
         }
+
+        //insert the node towards we're moving as neighbor
+        if (movingTowardsNode != null)
+        {
+            temp.Add(movingTowardsNode);
+            movingTowardsNode=null;
+        }
+
         if (temp.Count != 0)
         {
             newstartnoden.neighbor_nodes = new GameObject[temp.Count];
@@ -259,6 +268,17 @@ public class Pathfinding : MonoBehaviour
             foreach(Node n in nodes){
                 n.missingArcs();
             }*/
+        }
+    }
+
+    public void movingTo(Vector3 pos)
+    {
+        foreach (GameObject g in nodesObj)
+        {
+            if(Vector3.Equals(g.transform.position,pos)){
+                movingTowardsNode=g;
+                break;
+            }
         }
     }
 }

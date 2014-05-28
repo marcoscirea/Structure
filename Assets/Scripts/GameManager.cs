@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
     public GameObject loadingScreen;
 	public GameObject pathfinding;
 
+    //public bool debug = true;
+
     
     void Awake()
     {
@@ -20,6 +22,21 @@ public class GameManager : MonoBehaviour {
         }
         instance = this;    
         DontDestroyOnLoad(this); 
+
+        /*if (!debug)
+        {
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("CameraNode")){
+                g.transform.GetChild(0).gameObject.SetActive(false);
+            }
+
+            foreach(GameObject g in GameObject.FindGameObjectsWithTag("Waypoint")){
+                g.transform.GetChild(0).gameObject.SetActive(false);
+            }
+
+            foreach(GameObject g in GameObject.FindGameObjectsWithTag("Walkable")){
+                g.renderer.enabled=false;
+            }
+        }*/
     }
 
     void Start(){
@@ -43,4 +60,5 @@ public class GameManager : MonoBehaviour {
 		if (GameObject.FindGameObjectWithTag("Path") == null)
 			Instantiate(pathfinding);
     }
+
 }
