@@ -10,6 +10,9 @@ var blurShader : Shader;
 var blur : float;
 
 function Start () {
+	if (!blurShader.isSupported) 
+		enabled = false; 
+
 	blurMat = new Material(blurShader);
 }
 

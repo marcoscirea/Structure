@@ -12,6 +12,9 @@ public class Blur : MonoBehaviour
 
     private void Start () 
     {
+        if (!blurShader.isSupported)     
+            enabled = false; 
+
 	    blurMat = new Material(blurShader);
     }
 

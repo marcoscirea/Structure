@@ -6,7 +6,7 @@ built-in feature for those who are impatient to see motion blur on unity free!
 */
 
 @script RequireComponent(Camera);
-@script AddComponentMenu("Indie Effects/IndieEffectsBase(with motion blur)");
+@script AddComponentMenu("Indie Effects/IndieEffectsBase(with motion blur)"); 
 
 //base effects
 static var renderTexture : Texture2D;
