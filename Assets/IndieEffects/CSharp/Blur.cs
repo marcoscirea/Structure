@@ -10,11 +10,13 @@ public class Blur : MonoBehaviour
     [Range(0f,5f)]
     public float blur;
 
+    private void Awake(){
+        if (!blurShader.isSupported)     
+            enabled = false;
+    }
+
     private void Start () 
     {
-        if (!blurShader.isSupported)     
-            enabled = false; 
-
 	    blurMat = new Material(blurShader);
     }
 

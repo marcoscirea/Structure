@@ -900,7 +900,7 @@ MonoBehaviour:
       richTextEmphases: 0
       informSequenceStartAndEnd: 0
     cameraSettings:
-      sequencerCamera: {fileID: 2000000, guid: ef5fee1a0ae69134399b391ae72d7182, type: 2}
+      sequencerCamera: {fileID: 2000000, guid: 9019cacdbc4a2234db1488019034bcfb, type: 2}
       cameraAngles: {fileID: 100030, guid: 2c0e2b2ac8c041044ad1e9b347d65063, type: 2}
       defaultSequence: Camera(Closeup); required Camera(Closeup,listener)@{{end}}
     inputSettings:
