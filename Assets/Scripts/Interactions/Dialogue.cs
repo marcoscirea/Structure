@@ -20,6 +20,7 @@ public class Dialogue : Interaction
     {
         //dm.startDialogue(dialogueNum);
         Debug.Log("Dialogue");
+
         //gameObject.SendMessage("OnConversation", this.transform, SendMessageOptions.DontRequireReceiver);
         gameObject.SendMessage("OnUse", GameObject.FindGameObjectWithTag("Player").transform, SendMessageOptions.DontRequireReceiver);
         GameObject.FindGameObjectWithTag("Player").GetComponent<PointClick>().activate();

@@ -14,7 +14,7 @@ public class PointClick : MonoBehaviour
 
     //interaction variables
     Interaction interactiveobject = null;
-    GameObject selectedItem;
+    public GameObject selectedItem;
 
     //state control variables
     bool move = false;
@@ -60,7 +60,7 @@ public class PointClick : MonoBehaviour
 			//if the player is trying to use an item on something else, we control where the raycast hits
 			if (selectedItem != null)
 			{
-				checkForUseObject();
+				//checkForUseObject();
 				
 				checkForSecondaryAction();
 			}
@@ -71,7 +71,7 @@ public class PointClick : MonoBehaviour
             //if the player is trying to use an item on something else, we control where the raycast hits
             if (selectedItem != null)
             {
-				checkForUseObject();
+				//checkForUseObject();
 
 				checkForSecondaryAction();
             }

@@ -11,6 +11,8 @@ GameObject:
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: Object
   m_TagString: Interactive
@@ -39,9 +41,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: .421425819, y: -1.95826054, z: -.5}
-  m_LocalScale: {x: .403857499, y: .403857499, z: .403857499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.12284422, y: -.832482696, z: 0}
+  m_LocalScale: {x: .221793175, y: .2217931, z: .662784278}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -52,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 1.30888271, y: .120681524, z: .352640986}
+  m_LocalPosition: {x: -.293002129, y: .598223627, z: .352640867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -66,8 +68,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.52999997, y: 5.94999981, z: .200000003}
-  m_Center: {x: 0, y: 0, z: 6.05999994}
+  m_Size: {x: 4.30999994, y: 2.77999997, z: .200000003}
+  m_Center: {x: 0, y: 0, z: -6}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,14 +78,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46240fb52a33241448cb1f9ce766c3a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cb1057704767fe40996390d1b593582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkpoint: {x: 0, y: 0, z: 0}
-  invScale: {x: .25, y: .25, z: .25}
-  inInventory: 0
-  clicked: 0
-  isActive: 1
+  itemIcon: {fileID: 2800000, guid: 29c34f16168d18d4b910823c3f8e1af8, type: 3}
+  itemType: 
+  stackable: 0
+  stack: 1
+  isEquipment: 0
+  isAlsoWeapon: 0
+  equippedWeaponVersion: {fileID: 0}
+  equipmentEffect: {fileID: 0}
+  selected: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46a6c5395699bc54e9841cc642296e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteOnUse: 0
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1195045865, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 2
+  once: 0
+  onStart:
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 21200000}
+    state: 1
+  onEnd:
+  - condition:
+      luaConditions: []
+      questConditions: []
+      acceptedTags: []
+      acceptedGameObjects: []
+    target: {fileID: 21200000}
+    state: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -102,10 +150,10 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: e2de176e45632824fa0fb1970c08e598, type: 3}
+  m_SortingLayerID: 2966656077
+  m_Sprite: {fileID: 21300000, guid: 29c34f16168d18d4b910823c3f8e1af8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

@@ -34,8 +34,6 @@ public class ItemEffect : MonoBehaviour
 		disp.Close ();
 		//playersInv.DropItem (item);
 		item.Select (true);
-
-
 	
 				//Play a sound
 				playersInv.gameObject.SendMessage ("PlayDropItemSound", SendMessageOptions.DontRequireReceiver);

@@ -84,6 +84,12 @@ MonoBehaviour:
     - title: Is Item
       value: False
       type: 2
+    - title: In Inventory
+      value: False
+      type: 2
+    - title: Using
+      value: False
+      type: 2
   - id: 2
     fields:
     - title: Name
@@ -103,6 +109,64 @@ MonoBehaviour:
       type: 0
     - title: Is Item
       value: True
+      type: 2
+    - title: In Inventory
+      value: False
+      type: 2
+    - title: Using
+      value: False
+      type: 2
+  - id: 3
+    fields:
+    - title: Name
+      value: Carrot
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: True
+      type: 2
+    - title: In Inventory
+      value: False
+      type: 2
+    - title: Using
+      value: False
+      type: 2
+  - id: 4
+    fields:
+    - title: Name
+      value: Butterfly
+      type: 0
+    - title: Description
+      value: 
+      type: 0
+    - title: Success Description
+      value: 
+      type: 0
+    - title: Failure Description
+      value: 
+      type: 0
+    - title: State
+      value: unassigned
+      type: 0
+    - title: Is Item
+      value: True
+      type: 2
+    - title: In Inventory
+      value: False
+      type: 2
+    - title: Using
+      value: False
       type: 2
   locations:
   - id: 1
@@ -127,6 +191,17 @@ MonoBehaviour:
       type: 0
     - title: Description
       value: Show alert messages during gameplay by setting this variable.
+      type: 0
+  - id: 1
+    fields:
+    - title: Name
+      value: UsingItem
+      type: 0
+    - title: Initial Value
+      value: False
+      type: 2
+    - title: Description
+      value: 
       type: 0
   conversations:
   - id: 1
@@ -182,6 +257,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 9
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
     - id: 1
@@ -221,7 +302,7 @@ MonoBehaviour:
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["UsingItem"]==false;
       userScript: 
     - id: 2
       fields:
@@ -411,4 +492,108 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
+      userScript: 
+    - id: 7
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 2
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: 'That''s my carrot!
+
+          Thanks for bringing it to me :)'
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: Camera(SnowmanCloseup); Delay({{end}})
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["Carrot"].Using == true;
+      userScript: 
+    - id: 8
+      fields:
+      - title: Title
+        value: New Dialogue
+        type: 0
+      - title: Actor
+        value: 1
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Menu Text
+        value: 
+        type: 0
+      - title: Dialogue Text
+        value: I can't use it with that
+        type: 4
+      - title: Video File
+        value: 
+        type: 0
+      - title: Sequence
+        value: 
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["Carrot"].Using == false;
+      userScript: 
+    - id: 9
+      fields:
+      - title: Title
+        value: New Group
+        type: 0
+      - title: Actor
+        value: 2
+        type: 5
+      - title: Conversant
+        value: 1
+        type: 5
+      - title: Sequence
+        value: None()
+        type: 0
+      conversationID: 1
+      isRoot: 0
+      isGroup: 1
+      nodeColor: White
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 9
+        destinationConversationID: 1
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 9
+        destinationConversationID: 1
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: Variable["UsingItem"] == true;
       userScript: 

@@ -39,7 +39,7 @@ public class InventoryDisplay : MonoBehaviour
 		private bool cSheetFound = false;
 		//private Character cSheet;
 
-
+        
 
 //Store components and adjust the window position.
 		void Awake ()
@@ -116,6 +116,10 @@ public class InventoryDisplay : MonoBehaviour
 				gameObject.SendMessage ("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
 
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<PointClick> ().canMove = false;
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PointClick>().selectedItem != null)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PointClick>().selectedItem.GetComponent<Item>().Select(false);
+        }
 	}
 
 //Drawing the Inventory window

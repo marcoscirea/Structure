@@ -71,6 +71,14 @@
             <Title>Is Item</Title>
             <Value>False</Value>
           </Field>
+          <Field Hint="" Type="Boolean">
+            <Title>In Inventory</Title>
+            <Value>False</Value>
+          </Field>
+          <Field Hint="" Type="Boolean">
+            <Title>Using</Title>
+            <Value>False</Value>
+          </Field>
         </Fields>
       </Item>
       <Item ID="2">
@@ -98,6 +106,86 @@
           <Field Hint="When using the quest system, set this True to mark the item as an actual item rather than a quest." Type="Boolean">
             <Title>Is Item</Title>
             <Value>True</Value>
+          </Field>
+          <Field Hint="" Type="Boolean">
+            <Title>In Inventory</Title>
+            <Value>False</Value>
+          </Field>
+          <Field Hint="" Type="Boolean">
+            <Title>Using</Title>
+            <Value>False</Value>
+          </Field>
+        </Fields>
+      </Item>
+      <Item ID="3">
+        <Fields>
+          <Field Hint="A name to reference this item or quest. Use underscores instead of spaces so simulator Lua code works." Type="Text">
+            <Title>Name</Title>
+            <Value>Carrot</Value>
+          </Field>
+          <Field Hint="A description of this item or quest." Type="Text">
+            <Title>Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
+            <Title>Success Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it in failure." Type="Text">
+            <Title>Failure Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The state of the quest: unassigned, active, success, or failure" Type="Text">
+            <Title>State</Title>
+            <Value>unassigned</Value>
+          </Field>
+          <Field Hint="When using the quest system, set this True to mark the item as an actual item rather than a quest." Type="Boolean">
+            <Title>Is Item</Title>
+            <Value>True</Value>
+          </Field>
+          <Field Hint="" Type="Boolean">
+            <Title>In Inventory</Title>
+            <Value>False</Value>
+          </Field>
+          <Field Hint="" Type="Boolean">
+            <Title>Using</Title>
+            <Value>False</Value>
+          </Field>
+        </Fields>
+      </Item>
+      <Item ID="4">
+        <Fields>
+          <Field Hint="A name to reference this item or quest. Use underscores instead of spaces so simulator Lua code works." Type="Text">
+            <Title>Name</Title>
+            <Value>Butterfly</Value>
+          </Field>
+          <Field Hint="A description of this item or quest." Type="Text">
+            <Title>Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it successfully." Type="Text">
+            <Title>Success Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The description of the quest when the player has completed it in failure." Type="Text">
+            <Title>Failure Description</Title>
+            <Value />
+          </Field>
+          <Field Hint="The state of the quest: unassigned, active, success, or failure" Type="Text">
+            <Title>State</Title>
+            <Value>unassigned</Value>
+          </Field>
+          <Field Hint="When using the quest system, set this True to mark the item as an actual item rather than a quest." Type="Boolean">
+            <Title>Is Item</Title>
+            <Value>True</Value>
+          </Field>
+          <Field Hint="" Type="Boolean">
+            <Title>In Inventory</Title>
+            <Value>False</Value>
+          </Field>
+          <Field Hint="" Type="Boolean">
+            <Title>Using</Title>
+            <Value>False</Value>
           </Field>
         </Fields>
       </Item>
@@ -176,6 +264,7 @@
             <ReviewerStatus>None</ReviewerStatus>
             <OutgoingLinks>
               <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="0" DestinationDialogID="1" IsConnector="false" />
+              <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="0" DestinationDialogID="9" IsConnector="false" />
             </OutgoingLinks>
             <ConditionsString />
             <UserScript />
@@ -216,7 +305,7 @@
             <OutgoingLinks>
               <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="1" DestinationDialogID="2" IsConnector="false" />
             </OutgoingLinks>
-            <ConditionsString />
+            <ConditionsString>Variable["UsingItem"]==false;</ConditionsString>
             <UserScript />
           </DialogEntry>
           <DialogEntry ID="2" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
@@ -411,6 +500,105 @@
             <ConditionsString />
             <UserScript />
           </DialogEntry>
+          <DialogEntry ID="7" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>New Dialogue</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>2</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>1</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>That's my carrot!
+Thanks for bringing it to me :)</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value>Camera(SnowmanCloseup); Delay({{end}})</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Item["Carrot"].Using == true;</ConditionsString>
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="8" IsRoot="false" IsGroup="false" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>New Dialogue</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>1</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>1</Value>
+              </Field>
+              <Field Hint="The text that is displayed to the player in a list as a dialogue option." Type="Text">
+                <Title>Menu Text</Title>
+                <Value />
+              </Field>
+              <Field Hint="The text that is spoken by the actor." Type="Localization">
+                <Title>Dialogue Text</Title>
+                <Value>I can't use it with that</Value>
+              </Field>
+              <Field Hint="A WMV video file to be played for this dialogue." Type="Text">
+                <Title>Video File</Title>
+                <Value />
+              </Field>
+              <Field Hint="Dialogue System for Unity cutscene sequence" Type="Text">
+                <Title>Sequence</Title>
+                <Value />
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks />
+            <ConditionsString>Item["Carrot"].Using == false;</ConditionsString>
+            <UserScript />
+          </DialogEntry>
+          <DialogEntry ID="9" IsRoot="false" IsGroup="true" NodeColor="White" DelaySimStatus="false" FalseCondtionAction="Block" ConditionPriority="Normal">
+            <Fields>
+              <Field Hint="The title of this dialogue." Type="Text">
+                <Title>Title</Title>
+                <Value>New Group</Value>
+              </Field>
+              <Field Hint="The actor who is talking." Type="Actor">
+                <Title>Actor</Title>
+                <Value>2</Value>
+              </Field>
+              <Field Hint="The actor who is listening." Type="Actor">
+                <Title>Conversant</Title>
+                <Value>1</Value>
+              </Field>
+            </Fields>
+            <ReviewerNotes />
+            <ReviewerStatus>None</ReviewerStatus>
+            <OutgoingLinks>
+              <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="9" DestinationDialogID="7" IsConnector="false" />
+              <Link OriginConvoID="1" DestinationConvoID="1" OriginDialogID="9" DestinationDialogID="8" IsConnector="false" />
+            </OutgoingLinks>
+            <ConditionsString>Variable["UsingItem"] == true;</ConditionsString>
+            <UserScript />
+          </DialogEntry>
         </DialogEntries>
       </Conversation>
     </Conversations>
@@ -428,6 +616,22 @@
           <Field Hint="A short description of what this variable is for." Type="Text">
             <Title>Description</Title>
             <Value>Show alert messages during gameplay by setting this variable.</Value>
+          </Field>
+        </Fields>
+      </UserVariable>
+      <UserVariable>
+        <Fields>
+          <Field Hint="The name of this variable." Type="Text">
+            <Title>Name</Title>
+            <Value>UsingItem</Value>
+          </Field>
+          <Field Hint="The default initial value of this variable." Type="Number">
+            <Title>Initial Value</Title>
+            <Value>False</Value>
+          </Field>
+          <Field Hint="A short description of what this variable is for." Type="Text">
+            <Title>Description</Title>
+            <Value />
           </Field>
         </Fields>
       </UserVariable>

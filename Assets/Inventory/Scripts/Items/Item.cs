@@ -170,11 +170,17 @@ void OnDrawGizmos (){
 
 	public void Select(bool b){
 		if (b) {
+            PixelCrushers.DialogueSystem.DialogueLua.SetVariable("UsingItem", true);
+            PixelCrushers.DialogueSystem.DialogueLua.SetItemField(gameObject.name, "Using", true);
+
 			selected = true;
 			gameObject.collider.enabled = false;
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PointClick> ().usingItem (gameObject);
 			gameObject.SetActive (true);
 				} else {
+            PixelCrushers.DialogueSystem.DialogueLua.SetVariable("UsingItem", false);
+            PixelCrushers.DialogueSystem.DialogueLua.SetItemField(gameObject.name, "Using", false);
+
 			selected = false;
 			gameObject.collider.enabled = true;
 			GameObject.FindGameObjectWithTag ("Player").GetComponent<PointClick> ().usingItem (null);
@@ -187,7 +193,7 @@ void OnDrawGizmos (){
 		bool success = false;
 		//interact with object
 		Debug.Log("Interact!");
-		switch (gameobj.name)
+		/*switch (gameobj.name)
         {
 
         //Combining items template
@@ -200,7 +206,9 @@ void OnDrawGizmos (){
                         break;
                 }
                 break; 
-        }
+        }*/
+
+
 		
 		//last operations
 		if (success)
