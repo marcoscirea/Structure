@@ -9,6 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400004}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -42,6 +44,33 @@ MonoBehaviour:
   exitPrompt: {fileID: 100000, guid: 1e50f910c459e2b43a58479c65d690ea, type: 2}
   loadingScreen: {fileID: 100000, guid: 9baa221aa241e9e4aa18dc50d6e3c743, type: 2}
   pathfinding: {fileID: 100000, guid: bc3551fa76a80904caa7463b7fdccdca, type: 2}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e738cb1db996141a7633ef57353ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2143113903, guid: b5a7519e94754fb4a8ea0c272031db78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefsKey: savedgame
+  slot: 0
+  functionOnUse: 0
+  applyGameStateWhenLoadingLevels: 0
+  dontDestroyOnLoad: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

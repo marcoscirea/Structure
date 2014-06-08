@@ -47,6 +47,9 @@ MonoBehaviour:
     - title: IsPlayer
       value: True
       type: 2
+    - title: carrot
+      value: False
+      type: 2
     portrait: {fileID: 0}
   - id: 2
     fields:
